@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="author" content="Rowan Blokdijk">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1">
+    <title>Amsterdam Ultimate Autumn</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href='http://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+
+    <header>
+        <h1>Amsterdam Ultimate Autumn</h1>
+        <nav>
+            <ul>
+                <li id="aRanking"><a href="#/ranking">Ranking</a></li>
+                <li id ="aSchedule"><a href="#/schedule">Schedule</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="loaderInactive">
+        <div></div>
+    </div>
+    
+    <section class="content">
+
+        <article data-route="home" class="active">
+
+            <div id="imgHome">
+                <h1>Tournament</h1>
+            </div>
+
+        </article>
+
+        <article data-route="game">
+
+            <h1>Edit score</h1>
+
+            <form id="gamePostForm" method="post" action="">
+                <label for="team1score">Score team 1</label>
+                <input type="text" name="team1score">
+                <label for="team2score">Score team 2</label>
+                <input type="text" name="team2score">
+                <input type="submit" value="Send score">
+                <p id="callbackSend" class="callbackHide">The scores have been send</p>
+                <p id="callback1Empty" class="callbackHide">One score field has been left blank</p>
+                <p id="callback2Empty" class="callbackHide">Both score fields were left blank</p>
+                <p id="backLink"><a href="#/schedule">Back to schedule</a></p>
+            </form>
+
+        </article>
+
+        <article data-route="ranking">
+
+            <h1>Pool <span data-bind="name"></span></h1>
+
+            <div data-bind="standings">
+                <div>
+                    <p data-bind="team"><span data-bind="name"></span></p>
+                    <p>Won</p>
+                    <p>Lost</p>
+                    <p data-bind="wins" class="standingsData"></p>
+                    <p data-bind="losses" class="standingsData"></p>
+                    <p>Points won</p>
+                    <p>Points lost</p>
+                    <p data-bind="points_scored" class="standingsData"></p>
+                    <p data-bind="points_allowed" class="standingsData"></p>
+                    <p>Plus minus</p>
+                    <p data-bind="plus_minus" class="standingsData"></p>
+                </div>
+            </div>
+
+        </article>
+
+        <article data-route="schedule">
+
+            <h1>Pool D</h1>
+
+            <div data-route="scheduleData">
+                <div>
+                    <p class="date"></p>
+                    <p class="versus"></p>
+                    <p class="standing"></p>
+                    <p class="winner"></p>
+                    <p class="swipe">Swipe to edit score</p>
+                </div>
+            </div>
+
+        </article>
+
+    </section>
+
+    <!-- Routie -->
+    <script src="js/lib/routie.js"></script>
+    <!-- DOM ready -->
+    <script src="js/lib/ready.min.js" type="text/javascript"></script>
+    <!-- Qwery -->
+    <script src="js/lib/qwery.min.js" type="text/javascript"></script>
+    <!-- Transparancy -->
+    <script src="js/lib/transparancy.min.js" type="text/javascript"></script>
+    <!-- Fermata -->
+    <script src="js/lib/fermata.js"></script>
+    <!-- QuoJS -->
+    <script src="js/lib/quo.js"></script>
+    <!-- QuoJS debug -->
+    <script src="js/lib/quo.debug.js"></script>
+    <!-- Application script -->
+    <script src="js/scoreapp.js"></script>
+    
+</body>
+</html>
